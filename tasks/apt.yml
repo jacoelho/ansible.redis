@@ -25,7 +25,7 @@
   become: yes
   become_method: sudo
 
-- name: redis | install
+- name: redis | install (pinned version)
   apt:
     pkg: "redis-server={{ redis_version }}"
     state: present

@@ -1,0 +1,46 @@
+---
+
+- name: redis | add repository key
+  apt_key:
+    url: "{{ redis_repository_key }}"
+    state: present
+  become: yes
+  become_method: sudo
+  when: redis_repository_key | match("^(http|https|ftp).*")
+
+- name: redis | add repository key
+  apt_key:
+    id: "{{ redis_repository_key }}"
+    keyserver: keyserver.ubuntu.com
+    state: present
+  become: yes
+  become_method: sudo
+  when: not redis_repository_key | match("^(http|https|ftp).*")
+
+- name: redis | add repository
+  apt_repository:
+    repo: "{{ redis_repository }}"
+    state: present
+    update_cache: yes
+  become: yes
+  become_method: sudo
+
+- name: redis | install
+  apt:
+    pkg: "redis-server={{ redis_version }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+  become_method: sudo
+  when: redis_version is defined and redis_version|length > 1
+
+- name: redis | install
+  apt:
+    pkg: "redis-server"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+  become_method: sudo
+  when: not (redis_version is defined and redis_version|length > 1)

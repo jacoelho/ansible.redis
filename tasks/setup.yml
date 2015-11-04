@@ -1,0 +1,12 @@
+---
+
+- name: redis | redis.conf
+  template:
+    src: "redis.conf.j2"
+    dest: "{{ redis_conf }}"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  become_method: sudo
+  notify: restart redis

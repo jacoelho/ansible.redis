@@ -1,0 +1,266 @@
+{% if redis_daemonize is defined and redis_daemonize|string|length > 0 %}
+daemonize {{ redis_daemonize }}
+{% endif %}
+
+{% if redis_pidfile is defined and redis_pidfile|string|length > 0 %}
+pidfile {{ redis_pidfile }}
+{% endif %}
+
+{% if redis_port is defined and redis_port|string|length > 0 %}
+port {{ redis_port }}
+{% endif %}
+
+{% if redis_tcp_backlog is defined and redis_tcp_backlog|string|length > 0 %}
+tcp-backlog {{ redis_tcp_backlog }}
+{% endif %}
+
+{% if redis_unixsocket is defined and redis_unixsocket|string|length > 0 %}
+unixsocket {{ redis_unixsocket }}
+{% endif %}
+
+{% if redis_unixsocketperm is defined and redis_unixsocketperm|string|length > 0 %}
+unixsocketperm {{ redis_unixsocketperm }}
+{% endif %}
+
+{% if redis_timeout is defined and redis_timeout|string|length > 0 %}
+timeout {{ redis_timeout }}
+{% endif %}
+
+{% if redis_tcp_keepalive is defined and redis_tcp_keepalive|string|length > 0 %}
+tcp-keepalive {{ redis_tcp_keepalive }}
+{% endif %}
+
+{% if redis_loglevel is defined and redis_loglevel|string|length > 0 %}
+loglevel {{ redis_loglevel }}
+{% endif %}
+
+{% if redis_logfile is defined and redis_logfile|string|length > 0 %}
+logfile {{ redis_logfile }}
+{% endif %}
+
+{% if redis_syslog_enabled is defined and redis_syslog_enabled|string|length > 0 %}
+syslog-enabled {{ redis_syslog_enabled }}
+{% endif %}
+
+{% if redis_syslog_ident is defined and redis_syslog_ident|string|length > 0 %}
+syslog-ident {{ redis_syslog_ident }}
+{% endif %}
+
+{% if redis_syslog_facility is defined and redis_syslog_facility|string|length > 0 %}
+syslog-facility {{ redis_syslog_facility }}
+{% endif %}
+
+{% if redis_databases is defined and redis_databases|string|length > 0 %}
+databases {{ redis_databases }}
+{% endif %}
+
+{% if redis_save is defined %}
+{% for item in redis_save %}
+save {{ item }}
+{% endfor %}
+{% endif %}
+
+{% if redis_stop_writes_on_bgsave_error is defined and redis_stop_writes_on_bgsave_error|string|length > 0 %}
+stop-writes-on-bgsave-error {{ redis_stop_writes_on_bgsave_error }}
+{% endif %}
+
+{% if redis_rdbcompression is defined and redis_rdbcompression|string|length > 0 %}
+rdbcompression {{ redis_rdbcompression }}
+{% endif %}
+
+{% if redis_rdbchecksum is defined and redis_rdbchecksum|string|length > 0 %}
+rdbchecksum {{ redis_rdbchecksum }}
+{% endif %}
+
+{% if redis_dbfilename is defined and redis_dbfilename|string|length > 0 %}
+dbfilename {{ redis_dbfilename }}
+{% endif %}
+
+{% if redis_dir is defined and redis_dir|string|length > 0 %}
+dir {{ redis_dir }}
+{% endif %}
+
+{% if redis_slaveof is defined and redis_slaveof|string|length > 0 %}
+slaveof {{ redis_slaveof }}
+{% endif %}
+
+{% if redis_masterauth is defined and redis_masterauth|string|length > 0 %}
+masterauth {{ redis_masterauth }}
+{% endif %}
+
+{% if redis_slave_serve_stale_data is defined and redis_slave_serve_stale_data|string|length > 0 %}
+slave-serve-stale-data {{ redis_slave_serve_stale_data }}
+{% endif %}
+
+{% if redis_slave_read_only is defined and redis_slave_read_only|string|length > 0 %}
+slave-read-only {{ redis_slave_read_only }}
+{% endif %}
+
+{% if redis_repl_ping_slave_period is defined and redis_repl_ping_slave_period|string|length > 0 %}
+repl-ping-slave-period {{ redis_repl_ping_slave_period }}
+{% endif %}
+
+{% if redis_repl_timeout is defined and redis_repl_timeout|string|length > 0 %}
+repl-timeout {{ redis_repl_timeout }}
+{% endif %}
+
+{% if redis_repl_backlog_size is defined and redis_repl_backlog_size|string|length > 0 %}
+repl-backlog-size {{ redis_repl_backlog_size }}
+{% endif %}
+
+{% if redis_repl_backlog_ttl is defined and redis_repl_backlog_ttl|string|length > 0 %}
+repl-backlog-ttl {{ redis_repl_backlog_ttl }}
+{% endif %}
+
+{% if redis_repl_disable_tcp_nodelay is defined and redis_repl_disable_tcp_nodelay|string|length > 0 %}
+repl-disable-tcp-nodelay {{ redis_repl_disable_tcp_nodelay }}
+{% endif %}
+
+{% if redis_repl_diskless_sync is defined and redis_repl_diskless_sync|string|length > 0 %}
+repl-diskless-sync {{ redis_repl_diskless_sync }}
+{% endif %}
+
+{% if redis_repl_diskless_sync_delay is defined and redis_repl_diskless_sync_delay|string|length > 0 %}
+repl-diskless-sync-delay {{ redis_repl_diskless_sync_delay }}
+{% endif %}
+
+{% if redis_slave_priority is defined and redis_slave_priority|string|length > 0 %}
+slave-priority {{ redis_slave_priority }}
+{% endif %}
+
+{% if redis_min_slaves_to_write is defined and redis_min_slaves_to_write|string|length > 0 %}
+min-slaves-to-write {{ redis_min_slaves_to_write }}
+{% endif %}
+
+{% if redis_min_slaves_max_lag is defined and redis_min_slaves_max_lag|string|length > 0 %}
+min-slaves-max-lag {{ redis_min_slaves_max_lag }}
+{% endif %}
+
+{% if redis_requirepass is defined and redis_requirepass|string|length > 0 %}
+requirepass {{ redis_requirepass }}
+{% endif %}
+
+{% if redis_maxclients is defined and redis_maxclients|string|length > 0 %}
+maxclients {{ redis_maxclients }}
+{% endif %}
+
+{% if redis_maxmemory is defined and redis_maxmemory|string|length > 0 %}
+maxmemory {{ redis_maxmemory }}
+{% endif %}
+
+{% if redis_maxmemory_policy is defined and redis_maxmemory_policy|string|length > 0 %}
+maxmemory-policy {{ redis_maxmemory_policy }}
+{% endif %}
+
+{% if redis_maxmemory_samples is defined and redis_maxmemory_samples|string|length > 0 %}
+maxmemory-samples {{ redis_maxmemory_samples }}
+{% endif %}
+
+{% if redis_appendonly is defined and redis_appendonly|string|length > 0 %}
+appendonly {{ redis_appendonly }}
+{% endif %}
+
+{% if redis_appendfilename is defined and redis_appendfilename|string|length > 0 %}
+appendfilename {{ redis_appendfilename }}
+{% endif %}
+
+{% if redis_appendfsync is defined and redis_appendfsync|string|length > 0 %}
+appendfsync {{ redis_appendfsync }}
+{% endif %}
+
+{% if redis_no_appendfsync_on_rewrite is defined and redis_no_appendfsync_on_rewrite|string|length > 0 %}
+no-appendfsync-on-rewrite {{ redis_no_appendfsync_on_rewrite }}
+{% endif %}
+
+{% if redis_auto_aof_rewrite_percentage is defined and redis_auto_aof_rewrite_percentage|string|length > 0 %}
+auto-aof-rewrite-percentage {{ redis_auto_aof_rewrite_percentage }}
+{% endif %}
+
+{% if redis_auto_aof_rewrite_min_size is defined and redis_auto_aof_rewrite_min_size|string|length > 0 %}
+auto-aof-rewrite-min-size {{ redis_auto_aof_rewrite_min_size }}
+{% endif %}
+
+{% if redis_lua_time_limit is defined and redis_lua_time_limit|string|length > 0 %}
+lua-time-limit {{ redis_lua_time_limit }}
+{% endif %}
+
+{% if redis_cluster_enabled is defined and redis_cluster_enabled|string|length > 0 %}
+cluster-enabled {{ redis_cluster_enabled }}
+{% endif %}
+
+{% if redis_cluster_config_file is defined and redis_cluster_config_file|string|length > 0 %}
+cluster-config-file {{ redis_cluster_config_file }}
+{% endif %}
+
+{% if redis_cluster_require_full_coverage is defined and redis_cluster_require_full_coverage|string|length > 0 %}
+cluster-require-full-coverage {{ redis_cluster_require_full_coverage }}
+{% endif %}
+
+{% if redis_cluster_node_timeout is defined and redis_cluster_node_timeout|string|length > 0 %}
+cluster-node-timeout {{ redis_cluster_node_timeout }}
+{% endif %}
+
+{% if redis_cluster_migration_barrier is defined and redis_cluster_migration_barrier|string|length > 0 %}
+cluster-migration-barrier {{ redis_cluster_migration_barrier }}
+{% endif %}
+
+{% if redis_cluster_slave_validity_factor is defined and redis_cluster_slave_validity_factor|string|length > 0 %}
+cluster-slave-validity-factor {{ redis_cluster_slave_validity_factor }}
+{% endif %}
+
+{% if redis_slowlog_log_slower_than is defined and redis_slowlog_log_slower_than|string|length > 0 %}
+slowlog-log-slower-than {{ redis_slowlog_log_slower_than }}
+{% endif %}
+
+{% if redis_latency_monitor_threshold is defined and redis_latency_monitor_threshold|string|length > 0 %}
+latency-monitor-threshold {{ redis_latency_monitor_threshold }}
+{% endif %}
+
+{% if redis_slowlog_max_len is defined and redis_slowlog_max_len|string|length > 0 %}
+slowlog-max-len {{ redis_slowlog_max_len }}
+{% endif %}
+
+{% if redis_hash_max_ziplist_entries is defined and redis_hash_max_ziplist_entries|string|length > 0 %}
+hash-max-ziplist-entries {{ redis_hash_max_ziplist_entries }}
+{% endif %}
+
+{% if redis_hash_max_ziplist_value is defined and redis_hash_max_ziplist_value|string|length > 0 %}
+hash-max-ziplist-value {{ redis_hash_max_ziplist_value }}
+{% endif %}
+
+{% if redis_list_max_ziplist_entries is defined and redis_list_max_ziplist_entries|string|length > 0 %}
+list-max-ziplist-entries {{ redis_list_max_ziplist_entries }}
+{% endif %}
+
+{% if redis_set_max_intset_entries is defined and redis_set_max_intset_entries|string|length > 0 %}
+set-max-intset-entries {{ redis_set_max_intset_entries }}
+{% endif %}
+
+{% if redis_zset_max_ziplist_entries is defined and redis_zset_max_ziplist_entries|string|length > 0 %}
+zset-max-ziplist-entries {{ redis_zset_max_ziplist_entries }}
+{% endif %}
+
+{% if redis_zset_max_ziplist_value is defined and redis_zset_max_ziplist_value|string|length > 0 %}
+zset-max-ziplist-value {{ redis_zset_max_ziplist_value }}
+{% endif %}
+
+{% if redis_hll_sparse_max_bytes is defined and redis_hll_sparse_max_bytes|string|length > 0 %}
+hll-sparse-max-bytes {{ redis_hll_sparse_max_bytes }}
+{% endif %}
+
+{% if redis_activerehashing is defined and redis_activerehashing|string|length > 0 %}
+activerehashing {{ redis_activerehashing }}
+{% endif %}
+
+{% if redis_hz is defined and redis_hz|string|length > 0 %}
+hz {{ redis_hz }}
+{% endif %}
+
+{% if redis_aof_rewrite_incremental_fsync is defined and redis_aof_rewrite_incremental_fsync|string|length > 0 %}
+aof-rewrite-incremental-fsync {{ redis_aof_rewrite_incremental_fsync }}
+{% endif %}
+
+{% if redis_aof_load_truncated is defined and redis_aof_load_truncated|string|length > 0 %}
+aof-load-truncated {{ redis_aof_load_truncated }}
+{% endif %}
+

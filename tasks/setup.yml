@@ -1,9 +1,37 @@
 ---
 
+- name: redis | configure vm.overcommit_memory
+  copy:
+    dest: /etc/sysctl.d/60-overcommit.conf
+    content: "vm.overcommit_memory = 1"
+    mode: 0644
+    owner: root
+    group: root
+  become: yes
+  become_method: sudo
+  register: overcommit
+
+- name: redis | load vm.overcommit_memory settings
+  command: sysctl -p /etc/sysctl.d/60-overcommit.conf
+  become: yes
+  become_method: sudo
+  when: overcommit|changed
+
 - name: redis | redis.conf
   template:
     src: "redis.conf.j2"
     dest: "{{ redis_conf }}"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  become_method: sudo
+  notify: restart redis
+
+- name: redis | redis-server limit
+  template:
+    src: "redis-server.j2"
+    dest: "/etc/default/redis-server"
     owner: root
     group: root
     mode: 0644

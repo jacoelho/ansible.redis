@@ -1,0 +1,4 @@
+# This file is managed by Ansible, all changes will be lost.
+{% if redis_soft_limit is defined %}
+ULIMIT={{ redis_soft_limit }}
+{% endif %}

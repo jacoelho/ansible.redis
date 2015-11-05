@@ -14,7 +14,7 @@ To pin a specific redis version:
 
     redis_version: ""
 
-    Configure listening address and port:
+Configure listening address and port:
 
     redis_port: "6379"
     redis_bind: "0.0.0.0"

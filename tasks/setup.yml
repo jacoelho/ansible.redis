@@ -15,18 +15,19 @@
   command: sysctl -p /etc/sysctl.d/60-overcommit.conf
   become: yes
   become_method: sudo
-  when: overcommit|changed and ansible_env.CI != "true"
+  when: overcommit|changed and ansible_env.CI is defined and ansible_env.CI != "true"
 
 - name: redis | redis.conf
   template:
     src: "redis.conf.j2"
     dest: "{{ redis_conf }}"
-    owner: root
-    group: root
+    owner: "{{ redis_user }}"
+    group: "{{ redis_user }}"
     mode: 0644
   become: yes
   become_method: sudo
   notify: restart redis
+
 
 - name: redis | redis-server limit
   template:

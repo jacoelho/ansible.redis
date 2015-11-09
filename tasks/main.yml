@@ -4,3 +4,6 @@
 
 - include: setup.yml
 
+- include: sentinel.yml
+  when: redis_sentinel_master_ip is defined and redis_sentinel_master_ip|string|length > 0
+

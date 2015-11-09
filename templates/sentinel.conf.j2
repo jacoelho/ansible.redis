@@ -1,0 +1,96 @@
+# This file is managed by Ansible, all changes will be lost.
+{% if redis_sentinel_master_ip is defined and redis_sentinel_master_ip|string|length > 0 %}
+{% if redis_sentinel_monitor is defined and redis_sentinel_monitor|string|length > 0 %}
+{% if redis_sentinel_monitor is not string and redis_sentinel_monitor is not number %}
+{% for item in redis_sentinel_monitor %}
+sentinel monitor {{ item }}
+{% endfor %}
+{% else %}
+sentinel monitor {{ redis_sentinel_monitor }}
+{% endif %}
+{% endif %}
+{% if redis_sentinel_daemonize is defined and redis_sentinel_daemonize|string|length > 0 %}
+daemonize {{ redis_sentinel_daemonize }}
+{% endif %}
+{% if redis_sentinel_announce_ip is defined and redis_sentinel_announce_ip|string|length > 0 %}
+{% if redis_sentinel_announce_ip is not string and redis_sentinel_announce_ip is not number %}
+{% for item in redis_sentinel_announce_ip %}
+sentinel announce-ip {{ item }}
+{% endfor %}
+{% else %}
+sentinel announce-ip {{ redis_sentinel_announce_ip }}
+{% endif %}
+{% endif %}
+{% if redis_sentinel_parallel_syncs is defined and redis_sentinel_parallel_syncs|string|length > 0 %}
+{% if redis_sentinel_parallel_syncs is not string and redis_sentinel_parallel_syncs is not number %}
+{% for item in redis_sentinel_parallel_syncs %}
+sentinel parallel-syncs {{ item }}
+{% endfor %}
+{% else %}
+sentinel parallel-syncs {{ redis_sentinel_parallel_syncs }}
+{% endif %}
+{% endif %}
+{% if redis_sentinel_annnouce_port is defined and redis_sentinel_annnouce_port|string|length > 0 %}
+{% if redis_sentinel_annnouce_port is not string and redis_sentinel_annnouce_port is not number %}
+{% for item in redis_sentinel_annnouce_port %}
+sentinel annnouce-port {{ item }}
+{% endfor %}
+{% else %}
+sentinel annnouce-port {{ redis_sentinel_annnouce_port }}
+{% endif %}
+{% endif %}
+{% if redis_sentinel_notification_script is defined and redis_sentinel_notification_script|string|length > 0 %}
+{% if redis_sentinel_notification_script is not string and redis_sentinel_notification_script is not number %}
+{% for item in redis_sentinel_notification_script %}
+sentinel notification-script {{ item }}
+{% endfor %}
+{% else %}
+sentinel notification-script {{ redis_sentinel_notification_script }}
+{% endif %}
+{% endif %}
+{% if redis_sentinel_failover_timeout is defined and redis_sentinel_failover_timeout|string|length > 0 %}
+{% if redis_sentinel_failover_timeout is not string and redis_sentinel_failover_timeout is not number %}
+{% for item in redis_sentinel_failover_timeout %}
+sentinel failover-timeout {{ item }}
+{% endfor %}
+{% else %}
+sentinel failover-timeout {{ redis_sentinel_failover_timeout }}
+{% endif %}
+{% endif %}
+{% if redis_sentinel_port is defined and redis_sentinel_port|string|length > 0 %}
+port {{ redis_sentinel_port }}
+{% endif %}
+{% if redis_sentinel_logfile is defined and redis_sentinel_logfile|string|length > 0 %}
+logfile {{ redis_sentinel_logfile }}
+{% endif %}
+{% if redis_sentinel_down_after_milliseconds is defined and redis_sentinel_down_after_milliseconds|string|length > 0 %}
+{% if redis_sentinel_down_after_milliseconds is not string and redis_sentinel_down_after_milliseconds is not number %}
+{% for item in redis_sentinel_down_after_milliseconds %}
+sentinel down-after-milliseconds {{ item }}
+{% endfor %}
+{% else %}
+sentinel down-after-milliseconds {{ redis_sentinel_down_after_milliseconds }}
+{% endif %}
+{% endif %}
+{% if redis_sentinel_auth_pass is defined and redis_sentinel_auth_pass|string|length > 0 %}
+{% if redis_sentinel_auth_pass is not string and redis_sentinel_auth_pass is not number %}
+{% for item in redis_sentinel_auth_pass %}
+sentinel auth-pass {{ item }}
+{% endfor %}
+{% else %}
+sentinel auth-pass {{ redis_sentinel_auth_pass }}
+{% endif %}
+{% endif %}
+{% if redis_sentinel_client_reconfig_script is defined and redis_sentinel_client_reconfig_script|string|length > 0 %}
+{% if redis_sentinel_client_reconfig_script is not string and redis_sentinel_client_reconfig_script is not number %}
+{% for item in redis_sentinel_client_reconfig_script %}
+sentinel client-reconfig-script {{ item }}
+{% endfor %}
+{% else %}
+sentinel client-reconfig-script {{ redis_sentinel_client_reconfig_script }}
+{% endif %}
+{% endif %}
+{% if redis_sentinel_dir is defined and redis_sentinel_dir|string|length > 0 %}
+dir {{ redis_sentinel_dir }}
+{% endif %}
+{% endif %}

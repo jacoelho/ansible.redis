@@ -6,3 +6,10 @@
     state: "restarted"
   become: yes
   become_method: sudo
+
+- name: restart sentinel
+  service:
+    name: redis-sentinel
+    state: "restarted"
+  become: yes
+  become_method: sudo

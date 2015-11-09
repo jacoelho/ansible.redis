@@ -1,0 +1,33 @@
+---
+
+- name: redis | sentinel init script
+  template:
+    src: "redis-sentinel.j2"
+    dest: "/etc/init.d/redis-sentinel"
+    owner: root
+    group: root
+    mode: 0755
+  become: yes
+  become_method: sudo
+  notify: restart sentinel
+
+- name: redis | sentinel working dir
+  file:
+    path: "{{ redis_sentinel_dir }}"
+    owner: "{{ redis_user }}"
+    group: "{{ redis_user }}"
+    state: "directory"
+    mode: 0700
+  become: yes
+  become_method: sudo
+
+- name: redis | sentinel.conf
+  template:
+    src: "sentinel.conf.j2"
+    dest: "{{ redis_sentinel_conf }}"
+    owner: "{{ redis_user }}"
+    group: "{{ redis_user }}"
+    mode: 0644
+  become: yes
+  become_method: sudo
+  notify: restart sentinel

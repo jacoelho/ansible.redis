@@ -3,5 +3,9 @@
 - name: testing
   hosts: all
 
+  vars:
+    redis_sentinel_master_ip: 127.0.0.1
+
   roles:
     - role: ansible.redis
+

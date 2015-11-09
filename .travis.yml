@@ -1,0 +1,13 @@
+---
+
+language: python
+python: "2.7"
+install:
+  - echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/ansible.list
+  - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
+  - sudo apt-get update -qq
+  - sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends ansible
+  - echo -e 'localhost  ansible_connection=local' > inventory
+script:
+  - ansible-playbook -i inventory --syntax-check tests/playbook.yml
+  - ansible-playbook -i inventory tests/playbook.yml

@@ -15,7 +15,7 @@
   command: sysctl -p /etc/sysctl.d/60-overcommit.conf
   become: yes
   become_method: sudo
-  when: overcommit|changed
+  when: overcommit|changed and ansible_env.CI != "true"
 
 - name: redis | redis.conf
   template:

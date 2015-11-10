@@ -25,6 +25,18 @@ All the options support a list format, for example:
       - 127.0.0.1
       - 1.2.3.4
 
+Configuring redis sentinel:
+
+    redis_sentinel_enable: true
+    redis_sentinel_monitor:
+      - master 127.0.0.1 6379 2
+    redis_sentinel_down_after_milliseconds:
+      - master 60000
+    redis_sentinel_failover_timeout:
+      - master 180000
+    redis_parallel_syncs:
+      - master 1
+
 Dependencies
 ------------
 

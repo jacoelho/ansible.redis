@@ -1,5 +1,4 @@
 # This file is managed by Ansible, all changes will be lost.
-{% if redis_sentinel_master_ip is defined and redis_sentinel_master_ip|string|length > 0 %}
 {% if redis_sentinel_monitor is defined and redis_sentinel_monitor|string|length > 0 %}
 {% if redis_sentinel_monitor is not string and redis_sentinel_monitor is not number %}
 {% for item in redis_sentinel_monitor %}
@@ -11,6 +10,9 @@ sentinel monitor {{ redis_sentinel_monitor }}
 {% endif %}
 {% if redis_sentinel_daemonize is defined and redis_sentinel_daemonize|string|length > 0 %}
 daemonize {{ redis_sentinel_daemonize }}
+{% endif %}
+{% if redis_sentinel_pidfile is defined and redis_sentinel_pidfile|string|length > 0 %}
+pidfile {{ redis_sentinel_pidfile }}
 {% endif %}
 {% if redis_sentinel_announce_ip is defined and redis_sentinel_announce_ip|string|length > 0 %}
 {% if redis_sentinel_announce_ip is not string and redis_sentinel_announce_ip is not number %}
@@ -92,5 +94,4 @@ sentinel client-reconfig-script {{ redis_sentinel_client_reconfig_script }}
 {% endif %}
 {% if redis_sentinel_dir is defined and redis_sentinel_dir|string|length > 0 %}
 dir {{ redis_sentinel_dir }}
-{% endif %}
 {% endif %}

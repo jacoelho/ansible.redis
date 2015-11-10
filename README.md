@@ -19,6 +19,12 @@ Configure listening address and port:
     redis_port: "6379"
     redis_bind: "0.0.0.0"
 
+All the options support a list format, for example:
+
+    redis_bind:
+      - 127.0.0.1
+      - 1.2.3.4
+
 Dependencies
 ------------
 

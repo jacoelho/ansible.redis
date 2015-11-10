@@ -1,8 +1,19 @@
 ---
 
-- name: redis | sentinel init script
+- name: redis | redis-sentinel ulimit
   template:
     src: "redis-sentinel.j2"
+    dest: "/etc/default/redis-sentinel"
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+  become_method: sudo
+  notify: restart sentinel
+
+- name: redis | sentinel init script
+  template:
+    src: "redis-sentinel-init.j2"
     dest: "/etc/init.d/redis-sentinel"
     owner: root
     group: root

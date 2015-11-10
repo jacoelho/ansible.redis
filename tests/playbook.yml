@@ -4,6 +4,7 @@
   hosts: all
 
   vars:
+    redis_enable: false
     redis_sentinel_enable: true
     redis_sentinel_monitor:
       - master 127.0.0.1 6379 2

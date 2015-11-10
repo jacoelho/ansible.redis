@@ -11,3 +11,11 @@
 @test "redis should be listening for connections" {
   [ "$(netstat -an |grep 0.0.0.0:6379)" ]
 }
+
+@test "should have an redis-server default file" {
+  [ -e "/etc/default/redis-server" ]
+}
+
+@test "should have an redis-server config file" {
+  [ -e "/etc/redis/redis.conf" ]
+}

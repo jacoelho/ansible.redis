@@ -2,7 +2,11 @@
 
 - include: apt.yml
 
-- include: setup.yml
+- include: redis.yml
+  when: redis_enable
+
+- include: disable-redis.yml
+  when: not redis_enable
 
 - include: sentinel.yml
   when: redis_sentinel_enable

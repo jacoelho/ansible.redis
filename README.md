@@ -19,7 +19,7 @@ Configure listening address and port:
     redis_port: "6379"
     redis_bind: "0.0.0.0"
 
-All the options support a list format, for example:
+All options support a list format, for example:
 
     redis_bind:
       - 127.0.0.1
@@ -36,6 +36,10 @@ Configuring redis sentinel:
       - master 180000
     redis_parallel_syncs:
       - master 1
+
+If you want to run only redis sentinel:
+
+      redis_enable: false
 
 Dependencies
 ------------

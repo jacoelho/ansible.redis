@@ -7,8 +7,8 @@ redis_version: ""
 
 redis_user: "redis"
 redis_conf: "/etc/redis/redis.conf"
-redis_sentinel_conf: "/etc/redis/sentinel.conf"
 
+redis_enable: true
 redis_soft_limit: 4096
 
 redis_daemonize: "yes"
@@ -80,6 +80,8 @@ redis_aof_rewrite_incremental_fsync: ""
 redis_aof_load_truncated: ""
 
 redis_sentinel_enable: false
+redis_sentinel_soft_limit: 4096
+redis_sentinel_conf: "/etc/redis/sentinel.conf"
 redis_sentinel_daemonize: "yes"
 redis_sentinel_port: "26379"
 redis_sentinel_announce_ip: ""

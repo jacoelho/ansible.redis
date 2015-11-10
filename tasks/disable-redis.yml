@@ -1,0 +1,9 @@
+---
+
+- name: redis | disable redis-server
+  service:
+    state: stopped
+    name: redis-server
+    enabled: no
+  become: yes
+  become_method: sudo
